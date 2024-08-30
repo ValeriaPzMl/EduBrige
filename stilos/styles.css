@@ -3,23 +3,20 @@ body{
     background: linear-gradient(90deg, rgba(232,255,206,1) 0%, rgba(172,250,223,1) 50%, rgba(148,173,215,1) 100%);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-h1{
-    color:#e8ffce;
+.tituindex{
+    color:#171335;
+    size: 40px;
+    margin-top: 10%;
 }
 .menu{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 20px;
-    padding-left: 5%;
-    padding-right: 5%;
-    font-weight: bold;
-    background-color: #171335;
+    background-color: #171335 !important;
+    color: #e8ffce !important	;
+
 }
-ul li{
+/*ul li{
     display:inline-block;
     padding: 0px 20px;
-}
+}-->*/
 
 .items{
     color:#e8ffce;
@@ -31,12 +28,9 @@ ul li{
     text-decoration: underline;
 }
 .prin{
-    display: inline-block;
-    width: 40%;
-    margin-top: 300px;
-    margin-left: 30%;
-    margin-right: 30%;
+    display: inline;
     background-image: url(./images/file.png);
+    margin-top: 10%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
