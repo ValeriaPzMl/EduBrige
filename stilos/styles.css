@@ -11,7 +11,25 @@ body{
 .menu{
     background-color: #171335 !important;
     color: #e8ffce !important	;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: left !important;
+    
 
+}
+.menu:hover{
+    color: #171335 !important;
+    background-color: #e8ffce !important;
+}
+.side{
+    background-color: #3351e6;
+}
+.my-fixed-item {
+    width: 100%!important;
+    position: fixed;
+}
+.msgs{
+    background-color: rgba(0, 0, 50, 0.1);
 }
 /*ul li{
     display:inline-block;
