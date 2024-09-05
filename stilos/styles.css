@@ -80,4 +80,19 @@ body{
     color: #3351e6;
     display: block;
     text-decoration: none;
+    font-weight: bold;
+}
+.area{
+    width: 100%;
+    text-align: center;
+    
+}
+.sep{
+    border-color: #171335;
+}
+.cosas{
+    text-align: center;
+    display: inline-flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
