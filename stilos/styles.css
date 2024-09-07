@@ -96,3 +96,8 @@ body{
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
+.card-img-top{
+    width: 100px;
+    height: 100px;
+}
