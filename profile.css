@@ -1,0 +1,10 @@
+#ProfilePicture{
+    right: 50px;
+    width: 200px;
+    border-radius: 50%;
+}
+#card{
+    nav-down: 100px;
+    width: 700px;
+    margin: auto;
+}
