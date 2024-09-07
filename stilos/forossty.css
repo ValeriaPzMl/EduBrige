@@ -217,8 +217,6 @@ body{
     clear: both;
     height: 0
 }
-
-
 @media only screen and (max-width: 767px) {
     .chat-app .people-list {
         height: 465px;

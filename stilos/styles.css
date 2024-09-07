@@ -8,6 +8,9 @@ body{
     size: 40px;
     margin-top: 10%;
 }
+h1{
+    color: #0c0a1c !important;
+}
 .menu{
     background-color: #171335 !important;
     color: #e8ffce !important	;
@@ -96,8 +99,18 @@ body{
     justify-content: space-around;
     flex-wrap: wrap;
 }
-
-.card-img-top{
-    width: 100px;
-    height: 100px;
+h2{
+    color: #0c0a1c !important;
 }
+.card-img-top{
+    width: 120px!important;
+    padding-top: 10px;
+    margin:auto;
+    height: 120px !important;
+}
+.card{
+    background-color: #3351e6bb!important;
+    color: #0c0a1c !important;
+    width: 30%;
+}
+
