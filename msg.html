@@ -34,10 +34,13 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container" style="margin-top: 100px;">
         <div class="row clearfix">
-            <div class="col-lg-12">
+            <div class="col-lg-12">                    
+                <button class="text-success border-5 border-success text-bg-light btn btn-primary d-block d-md-none mb-3" id="toggleChatList">Show</button>
+
                 <div class="card chat-app">
+
                     <div id="plist" class="people-list chatn">
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -104,6 +107,7 @@
                             </li>
                         </ul>
                     </div>
+
                     <div class="chat chatsss">
                         <div class="chat-header clearfix">
                             <div class="row">
@@ -120,6 +124,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="chat-history">
                             <ul class="m-b-0">
                                 <li class="clearfix">
@@ -127,22 +132,23 @@
                                         <span class="message-data-time">10:10 AM, Today</span>
                                         <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
                                     </div>
-                                    <div class="message other-message float-right"> Hi Aiden, you were able to take the math test? </div>
+                                    <div class="message other-message float-right"> Keep in mind that this is just a prototype. </div>
                                 </li>
                                 <li class="clearfix">
                                     <div class="message-data">
                                         <span class="message-data-time">10:12 AM, Today</span>
                                     </div>
-                                    <div class="message my-message">Im on it</div>                                    
+                                    <div class="message my-message">Yes, there is still work to do</div>                                    
                                 </li>                               
                                 <li class="clearfix">
                                     <div class="message-data">
                                         <span class="message-data-time">10:15 AM, Today</span>
                                     </div>
-                                    <div class="message my-message">I'll let you know when im finished</div>
+                                    <div class="message my-message">with the knowledge that we still need to learn</div>
                                 </li>
                             </ul>
                         </div>
+
                         <div class="chat-message clearfix">
                             <div class="input-group mb-0">
                                 <div class="input-group-prepend">
@@ -157,6 +163,12 @@
         </div>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+    <script>
+        document.getElementById('toggleChatList').addEventListener('click', function() {
+            var chatList = document.getElementById('plist');
+            chatList.classList.toggle('open');
+            this.textContent = chatList.classList.contains('open') ? 'Hide' : 'Show';
+        });
+    </script>
 </body>
 </html>

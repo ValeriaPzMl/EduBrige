@@ -37,8 +37,11 @@
       
       <div class="container">
         <div class="row clearfix">
-            <div class="col-lg-12">
+            <div class="col-lg-12">                    
+                <button class="text-success border-5 border-success text-bg-light btn btn-primary d-block d-md-none mb-3" id="toggleChatList">Show</button>
+
                 <div class="card chat-app">
+
                     <div id="plist" class="people-list chatn">
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -159,6 +162,12 @@
         </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+    <script>
+        document.getElementById('toggleChatList').addEventListener('click', function() {
+            var chatList = document.getElementById('plist');
+            chatList.classList.toggle('open');
+            this.textContent = chatList.classList.contains('open') ? 'Hide' : 'Show';
+        });
+    </script>
 </body>
 </html>

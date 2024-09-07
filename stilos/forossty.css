@@ -8,6 +8,7 @@ body{
 .chatn{
     background-color: #8de6a3;
 }
+
 .card {
     background: #554c9b;
     transition: .5s;
@@ -33,6 +34,7 @@ body{
 }
 
 .people-list {
+    position: absolute;
     -moz-transition: .5s;
     -o-transition: .5s;
     -webkit-transition: .5s;
@@ -215,7 +217,6 @@ body{
     clear: both;
     height: 0
 }
-
 @media only screen and (max-width: 767px) {
     .chat-app .people-list {
         height: 465px;
@@ -259,5 +260,29 @@ body{
     .chat-app .chat-history {
         height: calc(100vh - 350px);
         overflow-x: auto
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .chat-app .people-list {
+        height: 465px;
+        width: 100%;
+        overflow-x: auto;
+        background: #e8ffce;
+        left: -400px;
+        display: none;
+    }
+    .chat-app .people-list.open {
+        left: 0;
+        display: block;
+    }
+    .chat-app .chat {
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #toggleChatList {
+        display: none;
     }
 }
