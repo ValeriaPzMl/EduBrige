@@ -1,44 +1,70 @@
 <%- include("partials/header"); -%>
 
-<%- include("partials/navbar"); -%>
 
-<div class="container text-center">
-    <div class="row">
-      <div class="col">
-      </div>
-      <div class="col-6">
-        <h1 class="tituindex">EduBridge</h1>
-        <div class="prin">
-            <div class="icon-box">
-                <img src="./images/areass.png" class="icon">
-                <a href="areas.html">AREAS </a>
+  <link rel="stylesheet" href="/stilos/registerstyle.css">
+  <title>Session</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Formulario de Inicio de Sesión -->
+        <div class="login-container">
+          <h2>Log in</h2>
+          <form action="/login" method="POST">
+            <label for="correo">Mail</label>
+            <input type="email" id="correo" name="correo" required>
+            
+            <label for="contraseña">Password</label>
+            <input type="password" id="contraseña" name="contraseña" required>
+            
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+    
+        <!-- Formulario de Registro -->
+        <div class="register-container">
+          <h2>Register</h2>
+          <form action="/register" method="POST">
+            <label for="nombre">Name</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="apellidos">Last name</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+    
+            <label for="correo">Mail</label>
+            <input type="email" id="correo" name="correo" required>
+            
+            <label for="contraseña">Password</label>
+            <input type="password" id="contraseña" name="contraseña" required>
+    
+            <label for="tipo">Kind</label>
+            <select id="tipo" name="tipo" required onchange="toggleFields()">
+              <option value="estudiante">Estudent</option>
+              <option value="maestro">Teacher</option>
+            </select>
+    
+            <!-- Campos adicionales para maestros -->
+            <div id="maestro-fields" style="display: none;">
+              <label for="materia">Class</label>
+              <input type="text" id="materia" name="materia">
+    
+              <label for="idiomas">Language (separated by commas)</label>
+              <input type="text" id="idiomas" name="idiomas">
             </div>
-            <div class="icon-box">
-                <img src="./images/teachers.png" class="icon">
-                <a href="teachers.html">TEACHERS </a>
-            </div>
-            <div class="icon-box">
-                <img src="./images/mesgss.png" class="icon">
-                <a href="msg.html">MESSAGES </a>
-            </div>
-            <div class="icon-box">
-                <img src="./images/forumss.png" class="icon">
-                <a href="foros.html">FORUMS </a>
-            </div>
-            <div class="icon-box">
-                <img src="./images/matr.png" class="icon">
-                <a href="material.html">MATERIAL </a>
-            </div>
-            <div class="icon-box">
-                <img src="./images/exam.png" class="icon">
-                <a href="quizes.html">QUIZZES </a>
-            </div> 
+    
+            <button type="submit">Registrer</button>
+          </form>
         </div>
       </div>
-      <div class="col">
-      </div>
-    </div>
-  </div>
-
-
-<%- include("partials/footer"); -%>
+    
+      <script>
+        // Mostrar u ocultar campos de maestro en función del tipo de usuario
+        function toggleFields() {
+          const tipo = document.getElementById('tipo').value;
+          const maestroFields = document.getElementById('maestro-fields');
+          maestroFields.style.display = (tipo === 'maestro') ? 'block' : 'none';
+        }
+      </script>
+    
+    
+  
+    <%- include("partials/footer"); -%>

@@ -1,0 +1,121 @@
+<%- include("partials/header"); -%>
+
+
+  <title>Forums</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/stilos/forossty.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #171335 !important; margin-bottom: 40px;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" style="color: #e8ffce !important;">FORUMS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- Enlaces de navegación -->
+          <li class="nav-item"><a class="nav-link active" style="color: #e8ffce !important;" href="/areas">AREAS</a></li>
+          <li class="nav-item"><a class="nav-link active" style="color: #e8ffce !important;" href="/teachers">TEACHERS</a></li>
+          <li class="nav-item"><a class="nav-link active" style="color: #e8ffce !important;" href="/msg">MESSAGES</a></li>
+          <li class="nav-item"><a class="nav-link active" style="color: #e8ffce !important;" href="/foros"><b>FORUMS</b></a></li>
+          <li class="nav-item"><a class="nav-link active" style="color: #e8ffce !important;" href="/material">MATERIAL</a></li>
+          <li class="nav-item"><a class="nav-link active" style="color: #e8ffce !important;" href="/quizes">QUIZZES</a></li>
+        </ul>
+        <span class="navbar-text">
+          <a class="nav-link active" href="/perfil"><img src="/images/perf.png" height="30px"></a>
+        </span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container container-90vh">
+    <div class="row clearfix">
+      <div class="col-lg-12">
+        <button class="text-success border-5 border-success text-bg-light btn btn-primary d-block d-md-none mb-3" id="toggleChatList">Show</button>
+
+        <div class="card chat-app">
+          <div id="plist" class="people-list chatn">
+
+            <!-- Lista de Materias -->
+            <ul class="list-unstyled chat-list mt-2 mb-0">
+              <% materias.forEach(materia => { %>
+                <li class="clearfix <%= materia === materiaSeleccionada ? 'active' : '' %>">
+                  <a href="/foros/<%= materia %>">
+                    <img src="/images/fle.png" alt="avatar">
+                    <div class="about">
+                      <div class="name"><%= materia %></div>
+                      <div class="status"> <i class="fa fa-circle <%= materia === materiaSeleccionada ? 'online' : 'offline' %>"></i> <%= materia === materiaSeleccionada ? 'active' : 'inactive' %> </div>
+                    </div>
+                  </a>
+                </li>
+              <% }); %>
+            </ul>
+          </div>
+
+          <!-- Ventana de Mensajes -->
+          <div class="chat chatsss">
+            <div class="chat-header clearfix">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="chat-about">
+                    <h6 class="m-b-0"><%= materiaSeleccionada || 'Select a forum' %></h6>
+                    <% if (materiaSeleccionada) { %>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Historial de Mensajes -->
+            <div   style="height: 60vh!important; overflow-y: scroll;" class="chat-history">
+              <ul class="m-b-0">
+                <% if (mensajes && mensajes.length > 0) { %>
+                  <% mensajes.forEach(mensaje => { %>
+                    <li class="clearfix">
+                      <div class="message-data <%= mensaje.usuario === usuario.nombre ? 'text-right' : '' %>">
+                        <span class="message-data-time"><%= mensaje.fecha.toLocaleString() %></span>
+                      </div>
+                      <div class="message <%= mensaje.usuario === usuario.nombre ? 'my-message' : 'other-message float-right' %>">
+                        <%= mensaje.contenido %>
+                      </div>
+                    </li>
+                  <% }); %>
+                <% } else if (materiaSeleccionada) { %>
+                  <li>There are no messages for this subject.</li>
+                <% } else { %>
+                  <li>Select a subject to view messages.</li>
+                <% } %>
+              </ul>
+            </div>
+
+            <!-- Formulario para enviar un mensaje -->
+            <% if (materiaSeleccionada) { %>
+                <div class="chat-message clearfix">
+                  <form action="/foros/<%= materiaSeleccionada %>" method="POST">
+                    <div class="input-group mb-0">
+                      <input type="text" class="form-control" name="contenido" placeholder="Write your message here...">
+                      <button type="submit" class="btn input-group-text">
+                        <i class="fa fa-send"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              <% } %>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('toggleChatList').addEventListener('click', function() {
+      var chatList = document.getElementById('plist');
+      chatList.classList.toggle('open');
+      this.textContent = chatList.classList.contains('open') ? 'Hide' : 'Show';
+    });
+  </script>
+  
+  
+  <%- include("partials/footer"); -%>

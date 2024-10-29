@@ -1,0 +1,27 @@
+#ProfilePicture{
+    width: 75%;
+    margin-top: 2.5vh;
+    margin-left: 5vw;
+    margin-bottom: 1vh;
+    margin-left: 2vw;
+}
+#card{
+    width: 55vw;
+    margin-top: 150px;
+    padding: 10px;
+    text-align: left;
+    margin: auto;
+}
+.gen{
+    text-align: center  ;
+    padding-top: 10vh;
+}
+.card-body{
+    margin-left: 10px;
+    color: #0c0a1c;
+    font-size: larger;
+}
+.btn{
+    background-color: #0c0a1c;
+    color: #e8ffce ;	;
+}

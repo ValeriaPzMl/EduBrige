@@ -1,0 +1,72 @@
+.container {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    background: linear-gradient(to right, #d4fc79, #96e6a1);
+    border-radius: 8px;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 3vh;
+  }
+  
+  /* Contenedores de formulario */
+  .login-container, .register-container {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+  }
+  
+  /* Títulos */
+  h2 {
+    color: #003366; /* Color oscuro que combina con el texto en tu página */
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  /* Etiquetas y campos de entrada */
+  label {
+    display: block;
+    font-weight: bold;
+    color: #003366;
+    margin: 0.5rem 0 0.2rem;
+  }
+  
+  input[type="text"], input[type="email"], input[type="password"], select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus {
+    border-color: #003366;
+    box-shadow: 0 0 5px rgba(0, 51, 102, 0.5);
+    outline: none;
+  }
+  
+  /* Botones */
+  button[type="submit"] {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #003366;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 2vh;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #00509e;
+  }
+  
+  /* Ocultar campos adicionales inicialmente */

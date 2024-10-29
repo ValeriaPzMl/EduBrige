@@ -1,5 +1,114 @@
 <%- include("partials/header"); -%>
 
-<%- include("partials/navbar"); -%>
 
-<%- include("partials/footer"); -%>
+
+    <title>Messages</title>
+    <link href=".\stilos\forossty.css" type="text/css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav  class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #171335 !important;" >
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: #e8ffce !important;">MESSAGES</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link active"  style="color: #e8ffce !important;" href="/areas">AREAS</a></li>
+              <li class="nav-item"><a class="nav-link active"  style="color: #e8ffce !important;" href="/teachers">TEACHERS</a></li>
+              <li class="nav-item"><a class="nav-link active"  style="color: #e8ffce !important;" href="/msg"><b>MESSAGES</b></a></li>
+              <li class="nav-item"><a class="nav-link active"  style="color: #e8ffce !important;" href="/foros">FORUMS</a></li>
+              <li class="nav-item"><a class="nav-link active"  style="color: #e8ffce !important;" href="/material">MATERIAL</a></li>
+              <li class="nav-item"><a class="nav-link active"  style="color: #e8ffce !important;" href="/quizes">QUIZZES</a></li>
+          
+          </ul>
+          <span class="navbar-text">
+              <a class="nav-link active" href="/perfil"><img src="./images/perf.png" height="30px"></a>
+          </span>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px">
+        <div class="row clearfix">
+          <div class="col-lg-12">                    
+            <button class="text-success border-5 border-success text-bg-light btn btn-primary d-block d-md-none mb-3" id="toggleChatList">Mostrar Usuarios</button>
+    
+            <div class="card chat-app d-flex">
+              
+              <!-- Lista de Usuarios -->
+              <div id="plist" class="people-list chatn">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-search"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Buscar...">
+                </div>
+    
+                <ul class="list-unstyled chat-list mt-2 mb-0">
+                  <% usuarios.forEach(usuario => { %>
+                    <li class="clearfix">
+                      <div class="about">
+                        <div class="name"><%= usuario.nombre %> <%= usuario.apellidos %></div>
+                      </div>
+                    </li>
+                  <% }); %>
+                </ul>
+              </div>
+    
+              <!-- Ventana de Mensajes -->
+              <div class="chat chatsss flex-grow-1">
+                <div class="chat-header clearfix">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="chat-about">
+                        <h6 class="m-b-0">Mensajes</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+                <!-- Historial de Mensajes -->
+                <div class="chat-history">
+                  <ul class="m-b-0">
+                    <% mensajes.forEach(mensaje => { %>
+                      <li class="clearfix">
+                        <div class="message-data">
+                          <span class="message-data-time"><%= mensaje.fecha.toLocaleString() %></span>
+                          <span class="message-data-username"><%= mensaje.usuario %>:</span>
+                        </div>
+                        <div class="message my-message"><%= mensaje.contenido %></div>
+                      </li>
+                    <% }); %>
+                  </ul>
+                </div>
+    
+                <!-- Formulario para enviar un mensaje -->
+                <div class="chat-message clearfix">
+                  <form action="/msg" method="POST">
+                    <div class="input-group mb-0">
+                        <input type="hidden" name="usuario" value="<%= usuario.nombre %>"> <!-- Nombre del usuario desde la sesión -->
+                        <textarea style="width: 80%;border-radius: 5px;" name="contenido" placeholder="Escribe tu mensaje aquí"></textarea>
+                      <div class="input-group-append">
+                        <button type="submit" class="btn"><i class="fa fa-send"></i> Enviar</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('toggleChatList').addEventListener('click', function() {
+            var chatList = document.getElementById('plist');
+            chatList.classList.toggle('open');
+            this.textContent = chatList.classList.contains('open') ? 'Hide' : 'Show';
+        });
+    </script>
+</body>
+</html>

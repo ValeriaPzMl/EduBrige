@@ -1,0 +1,60 @@
+<%- include("partials/header"); -%>
+
+
+    <link rel="stylesheet" href="./stilos/profile.css"/>
+    <title>My profile</title>
+</head>
+<body>
+    <nav  class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #171335 !important;" >
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: #e8ffce !important;">MY PROFILE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item"><a class="nav-link active"  style="color: #e8ffce !important;" href="/areas">AREAS</a></li>
+              <li class="nav-item"><a class="nav-link active"  style="color: #e8ffce !important;" href="/teachers">TEACHERS</a></li>
+              <li class="nav-item"><a class="nav-link active"  style="color: #e8ffce !important;" href="/msg">MESSAGES</a></li>
+              <li class="nav-item"><a class="nav-link active"  style="color: #e8ffce !important;" href="/foros">FORUMS</a></li>
+              <li class="nav-item"><a class="nav-link active"  style="color: #e8ffce !important;" href="/material">MATERIAL</a></li>
+              <li class="nav-item"><a class="nav-link active"  style="color: #e8ffce !important;" href="/quizes">QUIZZES</a></li>
+          
+          </ul>
+          <span class="navbar-text">
+              <a class="nav-link active" href="/perfil"><img src="./images/perf.png" height="30px"></a>
+          </span>
+        </div>
+      </div>
+    </nav>
+    </head>
+    <div class="gen">
+    <div class="card mb-3" id="card">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="/images/perf.png" id="ProfilePicture" alt="Tu foto">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><b>Nombre:</b> <%= usuario.nombre %> <%= usuario.apellidos %></h5>
+            <p class="card-text">
+              <p><b>Correo:</b> <%= usuario.correo %> </p>
+              <p><b>Tipo de Usuario:</b> <%= usuario.tipo === 'maestro' ? 'Profesor' : 'Estudiante' %> </p>
+              
+              <% if (usuario.tipo === 'maestro') { %>
+                <p><b>Materia:</b> <%= usuario.materia %></p>
+                <p><b>Idiomas:</b> <%= usuario.idiomas.join(', ') %></p>
+              <% } %>
+    
+            </p>
+            <p class="card-text">
+              <a href="/logout" class="btn mt-3">Cerrar Sesión</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+  <%- include("partials/footer"); -%>

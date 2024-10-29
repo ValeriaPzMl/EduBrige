@@ -1,0 +1,48 @@
+
+.gen{
+  text-align: center;
+}
+.profile-card {
+  background-color: #0c0a1c;
+  
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 5vh;
+  color: #333;
+  display: inline-flex;
+  text-align: left;
+  width: 50vw;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.info{
+ 
+}
+
+/* Icono de usuario */
+.profile-icon {
+  color: #e8ffce;
+  margin-bottom: 15px;
+  height: 150px;
+}
+.profile-icon img {
+  margin: 20px;
+  height: 110px;
+  
+}
+/* Estilos para el nombre y las etiquetas */
+.profile-name {
+  font-size: 30px;
+  font-weight: bold;
+  color: #aea6ea;
+}
+
+.profile-info {
+  font-size: 20px;
+  color: #e8ffce;
+  margin: 3px;
+}
+
+.profile-info b {
+  color: #a59ce8;
+}
