@@ -243,7 +243,7 @@ app.get('/quizes', verificarAutenticacion, (req, res) => {
 
 
 app.get('/areas', (req, res) => {
-  res.render('areas');
+  res.render('areas', {materias});
 });
 
 
