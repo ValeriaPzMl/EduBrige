@@ -74,7 +74,7 @@
                   <% mensajes.forEach(mensaje => { %>
                     <li class="clearfix">
                       <div class="message-data <%= mensaje.usuario === usuario.nombre ? 'text-right' : '' %>">
-                        <span class="message-data-time"><%= mensaje.fecha.toLocaleString() %></span>
+                        <span class="message-data-time"><%= mensaje.usuario %><%= mensaje.fecha.toLocaleString() %></span>
                       </div>
                       <div class="message <%= mensaje.usuario === usuario.nombre ? 'my-message' : 'other-message float-right' %>">
                         <%= mensaje.contenido %>
