@@ -127,10 +127,11 @@ app.post('/foros/:materia', verificarAutenticacion, async (req, res) => {
     }
   });
   
-
+  
         // INICIO
 app.get('/foros', verificarAutenticacion, (req, res) => {
-    res.render('foros', { materias, mensajes: null, materiaSeleccionada: null });
+    var pageName="Foros";
+    res.render('foros', { materias, mensajes: null, materiaSeleccionada: null,pageName});
   });
   
         // MOSTRAT FORO ESPECIFICO
@@ -140,8 +141,8 @@ const materiaSeleccionada = req.params.materia;
 try {
     const mensajes = await Message.find({ materia: materiaSeleccionada }).sort({ fecha: 1 });
     const usuario = await User.findById(req.session.userId); // Usuario autenticado
-
-    res.render('foros', { materias, mensajes, usuario, materiaSeleccionada });
+    var pageName="Foros";
+    res.render('foros', { materias, mensajes, usuario, materiaSeleccionada,pageName });
 } catch (err) {
     console.error("Error al cargar mensajes por materia:", err);
     res.send("Error al cargar mensajes.");
@@ -159,9 +160,9 @@ app.get('/perfil', verificarAutenticacion, async (req, res) => {
     if (!usuario) {
       return res.status(404).send("Usuario no encontrado.");
     }
-
+    var pageName="My profile";
     // Renderiza la vista de perfil con la información del usuario
-    res.render('perfil', { usuario });
+    res.render('perfil', { usuario,pageName });
   } catch (err) {
     console.error("Error al cargar el perfil:", err);
     res.status(500).send("Error al cargar el perfil.");
@@ -173,7 +174,8 @@ app.get('/teachers', verificarAutenticacion, async (req, res) => {
     try {
       // Filtrar usuarios cuyo campo `tipo` sea `maestro`
       const maestros = await User.find({ tipo: 'maestro' });
-      res.render('teachers', { maestros });
+      var pageName="Teachers";
+      res.render('teachers', { maestros,pageName });
     } catch (err) {
       console.error("Error al cargar maestros:", err);
       res.send("Error al cargar maestros.");
@@ -186,7 +188,8 @@ app.get('/material', verificarAutenticacion, (req, res) => {
   
     try {
       const categorias = fs.readdirSync(categoriasPath).filter(folder => fs.lstatSync(path.join(categoriasPath, folder)).isDirectory());
-      res.render('material', { categorias, pdfs: [], categoriaSeleccionada: null });
+      var pageName="Material";
+      res.render('material', { categorias, pdfs: [], categoriaSeleccionada: null,pageName});
     } catch (err) {
       console.error("Error al cargar categorías:", err);
       res.status(500).send("Error al cargar las categorías.");
@@ -201,8 +204,8 @@ app.get('/material', verificarAutenticacion, (req, res) => {
     try {
       const categorias = fs.readdirSync(path.join(__dirname, 'public', 'PDFS')).filter(folder => fs.lstatSync(path.join(__dirname, 'public', 'PDFS', folder)).isDirectory());
       const pdfs = fs.readdirSync(pdfPath).filter(file => file.endsWith('.pdf'));
-  
-      res.render('material', { categorias, pdfs, categoriaSeleccionada });
+      var pageName="Material";
+      res.render('material', { categorias, pdfs, categoriaSeleccionada,pageName });
     } catch (err) {
       console.error("Error al cargar archivos PDF:", err);
       res.status(404).send("Categoría no encontrada o error al cargar los archivos.");
@@ -215,7 +218,9 @@ app.get('/quizes', verificarAutenticacion, (req, res) => {
   
     try {
       const categorias = fs.readdirSync(categoriasPath).filter(folder => fs.lstatSync(path.join(categoriasPath, folder)).isDirectory());
-      res.render('quizes', { categorias, pdfs: [], categoriaSeleccionada: null });
+      var pageName="Quizes";
+
+      res.render('quizes', { categorias, pdfs: [], categoriaSeleccionada: null,pageName});
     } catch (err) {
       console.error("Error al cargar categorías:", err);
       res.status(500).send("Error al cargar las categorías.");
@@ -230,8 +235,8 @@ app.get('/quizes', verificarAutenticacion, (req, res) => {
     try {
       const categorias = fs.readdirSync(path.join(__dirname, 'public', 'QUIZZ')).filter(folder => fs.lstatSync(path.join(__dirname, 'public', 'QUIZZ', folder)).isDirectory());
       const pdfs = fs.readdirSync(pdfPath).filter(file => file.endsWith('.pdf'));
-  
-      res.render('quizes', { categorias, pdfs, categoriaSeleccionada });
+      var pageName="Quizes";
+      res.render('quizes', { categorias, pdfs, categoriaSeleccionada,pageName });
     } catch (err) {
       console.error("Error al cargar archivos PDF:", err);
       res.status(404).send("Categoría no encontrada o error al cargar los archivos.");
@@ -243,7 +248,8 @@ app.get('/quizes', verificarAutenticacion, (req, res) => {
 
 
 app.get('/areas', (req, res) => {
-  res.render('areas', {materias});
+    var pageName="Areas";
+  res.render('areas', {materias,pageName});
 });
 
 
@@ -254,7 +260,8 @@ app.get('/', (req, res) => {
   });
 
 app.get('/index', verificarAutenticacion, (req, res) => {
-  res.render('index'); // Renderiza la vista `index.ejs`
+    var namePage="Home";
+  res.render('index',{namePage}); // Renderiza la vista `index.ejs`
 });
 
 // COSAS DEL SERVIDOR ---------------------------------------------------------------------
