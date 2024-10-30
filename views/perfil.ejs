@@ -1,30 +1,41 @@
 <%- include("partials/header"); -%>
 
 
-    <link rel="stylesheet" href="./stilos/profile.css"/>
-    <title>My profile</title>
-</head>
-<body>
-  
-  <%- include("partials/navbar") -%>
+  <link rel="stylesheet" href="./stilos/profile.css" />
+  <title>My profile</title>
+  </head>
 
-    </head>
-    <div class="gen">
-    <div class="card mb-3" id="card">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="/images/perf.png" id="ProfilePicture" alt="Tu foto">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title"><b>Nombre:</b> <%= usuario.nombre %> <%= usuario.apellidos %></h5>
-            <p class="card-text">
-              <p><b>Correo:</b> <%= usuario.correo %> </p>
-              <p><b>Tipo de Usuario:</b> <%= usuario.tipo === 'maestro' ? 'Profesor' : 'Estudiante' %> </p>
-              
-              <% if (usuario.tipo === 'maestro') { %>
-                <p><b>Materia:</b> <%= usuario.materia %></p>
-                <p><b>Idiomas:</b> <%= usuario.idiomas.join(', ') %></p>
+  <body>
+
+    <%- include("partials/navbar") -%>
+
+      </head>
+      <div class="gen">
+        <div class="card mb-3" id="card">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="/images/perf.png" id="ProfilePicture" alt="Tu foto">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><b>Nombre:</b>
+                  <%= usuario.nombre %>
+                    <%= usuario.apellidos %>
+                </h5>
+                <p class="card-text">
+                <p><b>Correo:</b>
+                  <%= usuario.correo %>
+                </p>
+                <p><b>Tipo de Usuario:</b>
+                  <%= usuario.tipo==='maestro' ? 'Profesor' : 'Estudiante' %>
+                </p>
+
+                <% if (usuario.tipo==='maestro' ) { %>
+                  <p><b>Materia:</b>
+                    <%= usuario.materia %>
+                  </p>
+                  <p><b>Idiomas:</b>
+                    <%= usuario.idiomas.join(', ') %></p>
               <% } %>
     
             </p>

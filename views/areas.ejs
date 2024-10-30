@@ -1,34 +1,37 @@
 <%- include("partials/header"); -%>
-    
+
     <title>Areas of study</title>
-</head>
-<body>
+    </head>
 
-<%- include("partials/navbar") -%>
+    <body>
 
-<% materias.forEach((materia, index) => { %>
-    <div class="area">
-        <h1><%= materia %></h1>
-         
-        <div class="cosas">
-            
-            <div class="icon-box">
-                <a href="material/<%= materia %>">
-                <img src="./images/matr.png"/>
-                <p>Material</p>
-            </a>
-            </div>
-            
-            
-            <div class="icon-box">
-                <a href="quizes/<%= materia %>">
-                <img src="./images/exam.png"/>
-                <p>Quizzes</p>
-            </a>
-            </div>
-            
-        </div>
-    </div>
-    <hr/>
-<% }); %>    
-    <%- include("partials/footer"); -%>
+        <%- include("partials/navbar") -%>
+
+            <% materias.forEach((materia, index)=> { %>
+                <div class="area">
+                    <h1>
+                        <%= materia %>
+                    </h1>
+
+                    <div class="cosas">
+
+                        <div class="icon-box">
+                            <a href="material/<%= materia %>">
+                                <img src="./images/matr.png" />
+                                <p>Material</p>
+                            </a>
+                        </div>
+
+
+                        <div class="icon-box">
+                            <a href="quizes/<%= materia %>">
+                                <img src="./images/exam.png" />
+                                <p>Quizzes</p>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <hr />
+                <% }); %>
+                    <%- include("partials/footer"); -%>

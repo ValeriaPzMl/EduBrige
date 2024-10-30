@@ -2,85 +2,93 @@
 
 
 
-  <link href="/stilos/forossty.css" type="text/css" rel="stylesheet"/>
+  <link href="/stilos/forossty.css" type="text/css" rel="stylesheet" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <title>Materiales</title>
-</head>
-<body>
+  </head>
 
-  <%- include("partials/navbar") -%>
+  <body>
 
-  <div class="container container-90vh">
-    <div class="row clearfix">
-      <div class="col-lg-12 mas">
-        <button class="btn" id="toggleChatList">Show</button>
+    <%- include("partials/navbar") -%>
 
-        <div class="card chat-app">
-          <div id="plist" class="people-list chatn">
-            <!-- Lista de Categorías -->
-            <ul class="list-unstyled chat-list mt-2 mb-0">
-              <% categorias.forEach(categoria => { %>
-                <li class="clearfix <%= categoria === categoriaSeleccionada ? 'active' : '' %>">
-                  <a href="/material/<%= categoria %>">
-                    <img src="/images/fle.png" alt="icono de categoría">
-                    <div class="about">
-                      <div class="name"><%= categoria %></div>
-                      <div class="status"> <i class="fa fa-circle <%= categoria === categoriaSeleccionada ? 'online' : 'offline' %>"></i> <%= categoria === categoriaSeleccionada ? 'activo' : 'inactivo' %> </div>
+      <div class="container container-90vh">
+        <div class="row clearfix">
+          <div class="col-lg-12 mas">
+            <button class="btn" id="toggleChatList">Show</button>
+
+            <div class="card chat-app">
+              <div id="plist" class="people-list chatn">
+                <!-- Lista de Categorías -->
+                <ul class="list-unstyled chat-list mt-2 mb-0">
+                  <% categorias.forEach(categoria=> { %>
+                    <li class="clearfix <%= categoria === categoriaSeleccionada ? 'active' : '' %>">
+                      <a href="/material/<%= categoria %>">
+                        <img src="/images/fle.png" alt="icono de categoría">
+                        <div class="about">
+                          <div class="name">
+                            <%= categoria %>
+                          </div>
+                          <div class="status"> <i
+                              class="fa fa-circle <%= categoria === categoriaSeleccionada ? 'online' : 'offline' %>"></i>
+                            <%= categoria===categoriaSeleccionada ? 'activo' : 'inactivo' %>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <% }); %>
+                </ul>
+              </div>
+
+              <!-- Ventana de PDFs -->
+              <div class="chat chatsss">
+                <div class="chat-header clearfix">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="chat-about">
+                        <h6 class="m-b-0">
+                          <%= categoriaSeleccionada || 'Selecciona una categoría' %>
+                        </h6>
+                      </div>
                     </div>
-                  </a>
-                </li>
-              <% }); %>
-            </ul>
-          </div>
-
-          <!-- Ventana de PDFs -->
-          <div class="chat chatsss">
-            <div class="chat-header clearfix">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="chat-about">
-                    <h6 class="m-b-0"><%= categoriaSeleccionada || 'Selecciona una categoría' %></h6>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            <!-- Lista de PDFs -->
-            <div style="height: 60vh; overflow-y: auto;" class="chat-history">
-              <ul class="m-b-0 pdf-list">
-                <% if (pdfs && pdfs.length > 0) { %>
-                  <% pdfs.forEach(pdf => { %>
-                    <li class="clearfix">
-                      
-                        <a href="/PDFS/<%= categoriaSeleccionada %>/<%= pdf %>" target="_blank">
-                          <div class="file">
-                          <img src="/images/pdfss.png" height="200px">
-                           <%= pdf %>
-                          </div>
-                      </a>
-                      
-                    </li>
-                  <% }); %>
-                <% } else if (categoriaSeleccionada) { %>
-                  <li>No hay materiales en esta categoría.</li>
-                <% } else { %>
-                  <li>Selecciona una categoría para ver los materiales.</li>
-                <% } %>
-              </ul>
+                <!-- Lista de PDFs -->
+                <div style="height: 60vh; overflow-y: auto;" class="chat-history">
+                  <ul class="m-b-0 pdf-list">
+                    <% if (pdfs && pdfs.length> 0) { %>
+                      <% pdfs.forEach(pdf=> { %>
+                        <li class="clearfix">
+
+                          <a href="/PDFS/<%= categoriaSeleccionada %>/<%= pdf %>" target="_blank">
+                            <div class="file">
+                              <img src="/images/pdfss.png" height="200px">
+                              <%= pdf %>
+                            </div>
+                          </a>
+
+                        </li>
+                        <% }); %>
+                          <% } else if (categoriaSeleccionada) { %>
+                            <li>There are no materials in this category.</li>
+                            <% } else { %>
+                              <li>Select a category to view materials.</li>
+                              <% } %>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  
-  <script>
-    document.getElementById('toggleChatList').addEventListener('click', function() {
-      var chatList = document.getElementById('plist');
-      chatList.classList.toggle('open');
-      this.textContent = chatList.classList.contains('open') ? 'Hide' : 'Show';
-    });
-  </script>
-  
-  <%- include("partials/footer"); -%>
+
+      <script>
+        document.getElementById('toggleChatList').addEventListener('click', function () {
+          var chatList = document.getElementById('plist');
+          chatList.classList.toggle('open');
+          this.textContent = chatList.classList.contains('open') ? 'Hide' : 'Show';
+        });
+      </script>
+
+      <%- include("partials/footer"); -%>

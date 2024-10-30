@@ -3,99 +3,113 @@
 
   <title>Forums</title>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="/stilos/forossty.css" type="text/css" rel="stylesheet"/>
-</head>
-<body>
-  <%- include("partials/navbar") -%>
+  <link href="/stilos/forossty.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <%- include("partials/navbar") -%>
 
 
-  <div class="container container-90vh">
-    <div class="row clearfix">
-      <div class="col-lg-12">
-        <button class="text-success border-5 border-success text-bg-light btn btn-primary d-block d-md-none mb-3" id="toggleChatList">Show</button>
+      <div class="container container-90vh">
+        <div class="row clearfix">
+          <div class="col-lg-12">
+            <button class="text-success border-5 border-success text-bg-light btn btn-primary d-block d-md-none mb-3"
+              id="toggleChatList">Show</button>
 
-        <div class="card chat-app">
-          <div id="plist" class="people-list chatn">
+            <div class="card chat-app">
+              <div id="plist" class="people-list chatn">
 
-            <!-- Lista de Materias -->
-            <ul class="list-unstyled chat-list mt-2 mb-0">
-              <% materias.forEach(materia => { %>
-                <li class="clearfix <%= materia === materiaSeleccionada ? 'active' : '' %>">
-                  <a href="/foros/<%= materia %>">
-                    <img src="/images/fle.png" alt="avatar">
-                    <div class="about">
-                      <div class="name"><%= materia %></div>
-                      <div class="status"> <i class="fa fa-circle <%= materia === materiaSeleccionada ? 'online' : 'offline' %>"></i> <%= materia === materiaSeleccionada ? 'active' : 'inactive' %> </div>
+                <!-- Lista de Materias -->
+                <ul class="list-unstyled chat-list mt-2 mb-0">
+                  <% materias.forEach(materia=> { %>
+                    <li class="clearfix <%= materia === materiaSeleccionada ? 'active' : '' %>">
+                      <a href="/foros/<%= materia %>">
+                        <img src="/images/fle.png" alt="avatar">
+                        <div class="about">
+                          <div class="name">
+                            <%= materia %>
+                          </div>
+                          <div class="status"> <i
+                              class="fa fa-circle <%= materia === materiaSeleccionada ? 'online' : 'offline' %>"></i>
+                            <%= materia===materiaSeleccionada ? 'active' : 'inactive' %>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <% }); %>
+                </ul>
+              </div>
+
+              <!-- Ventana de Mensajes -->
+              <div class="chat chatsss">
+                <div class="chat-header clearfix">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="chat-about">
+                        <h6 class="m-b-0">
+                          <%= materiaSeleccionada || 'Select a forum' %>
+                        </h6>
+                        <% if (materiaSeleccionada) { %>
+                          <% } %>
+                      </div>
                     </div>
-                  </a>
-                </li>
-              <% }); %>
-            </ul>
-          </div>
-
-          <!-- Ventana de Mensajes -->
-          <div class="chat chatsss">
-            <div class="chat-header clearfix">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="chat-about">
-                    <h6 class="m-b-0"><%= materiaSeleccionada || 'Select a forum' %></h6>
-                    <% if (materiaSeleccionada) { %>
-                    <% } %>
                   </div>
                 </div>
+
+                <!-- Historial de Mensajes -->
+                <div style="height: 60vh!important; overflow-y: scroll;" class="chat-history">
+                  <ul class="m-b-0">
+                    <% if (mensajes && mensajes.length> 0) { %>
+                      <% mensajes.forEach(mensaje=> { %>
+                        <li class="clearfix">
+                          <div class="message-data <%= mensaje.usuario === usuario.nombre ? 'text-right' : '' %>">
+                            <span class="message-data-time">
+                              <%= mensaje.usuario %>
+                                <%= mensaje.fecha.toLocaleString() %>
+                            </span>
+                          </div>
+                          <div
+                            class="message <%= mensaje.usuario === usuario.nombre ? 'my-message' : 'other-message float-right' %>">
+                            <%= mensaje.contenido %>
+                          </div>
+                        </li>
+                        <% }); %>
+                          <% } else if (materiaSeleccionada) { %>
+                            <li>There are no messages for this subject.</li>
+                            <% } else { %>
+                              <li>Select a subject to view messages.</li>
+                              <% } %>
+                  </ul>
+                </div>
+
+                <!-- Formulario para enviar un mensaje -->
+                <% if (materiaSeleccionada) { %>
+                  <div class="chat-message clearfix">
+                    <form action="/foros/<%= materiaSeleccionada %>" method="POST">
+                      <div class="input-group mb-0">
+                        <input type="text" class="form-control" name="contenido"
+                          placeholder="Write your message here...">
+                        <button type="submit" class="btn input-group-text">
+                          <i class="fa fa-send"></i>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  <% } %>
+
               </div>
             </div>
-
-            <!-- Historial de Mensajes -->
-            <div   style="height: 60vh!important; overflow-y: scroll;" class="chat-history">
-              <ul class="m-b-0">
-                <% if (mensajes && mensajes.length > 0) { %>
-                  <% mensajes.forEach(mensaje => { %>
-                    <li class="clearfix">
-                      <div class="message-data <%= mensaje.usuario === usuario.nombre ? 'text-right' : '' %>">
-                        <span class="message-data-time"><%= mensaje.usuario %><%= mensaje.fecha.toLocaleString() %></span>
-                      </div>
-                      <div class="message <%= mensaje.usuario === usuario.nombre ? 'my-message' : 'other-message float-right' %>">
-                        <%= mensaje.contenido %>
-                      </div>
-                    </li>
-                  <% }); %>
-                <% } else if (materiaSeleccionada) { %>
-                  <li>There are no messages for this subject.</li>
-                <% } else { %>
-                  <li>Select a subject to view messages.</li>
-                <% } %>
-              </ul>
-            </div>
-
-            <!-- Formulario para enviar un mensaje -->
-            <% if (materiaSeleccionada) { %>
-                <div class="chat-message clearfix">
-                  <form action="/foros/<%= materiaSeleccionada %>" method="POST">
-                    <div class="input-group mb-0">
-                      <input type="text" class="form-control" name="contenido" placeholder="Write your message here...">
-                      <button type="submit" class="btn input-group-text">
-                        <i class="fa fa-send"></i>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              <% } %>
-              
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <script>
-    document.getElementById('toggleChatList').addEventListener('click', function() {
-      var chatList = document.getElementById('plist');
-      chatList.classList.toggle('open');
-      this.textContent = chatList.classList.contains('open') ? 'Hide' : 'Show';
-    });
-  </script>
-  
-  
-  <%- include("partials/footer"); -%>
+      <script>
+        document.getElementById('toggleChatList').addEventListener('click', function () {
+          var chatList = document.getElementById('plist');
+          chatList.classList.toggle('open');
+          this.textContent = chatList.classList.contains('open') ? 'Hide' : 'Show';
+        });
+      </script>
+
+
+      <%- include("partials/footer"); -%>

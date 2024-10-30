@@ -1,30 +1,34 @@
 <%- include("partials/header"); -%>
 
 
-    <link rel="stylesheet" href="./stilos/teachersstyle.css"/>
-    <title>Teachers</title>
-</head>
-<body>
+  <link rel="stylesheet" href="./stilos/teachersstyle.css" />
+  <title>Teachers</title>
+  </head>
 
-  <%- include("partials/navbar"); -%>
+  <body>
 
-    
-    <div class="gen">
-      <% maestros.forEach(maestro => { %>
-        <div class="profile-card">
-          <div class="profile-icon">
-            <!-- Imagen de perfil (misma para todos los maestros) -->
-            <img src="/images/perf.png" height="100px">
-          </div>
-          <div class="info">
-            <!-- Nombre del maestro -->
-            <div class="profile-name"><%= maestro.nombre %> <%= maestro.apellidos %></div>
-            <!-- Correo del maestro -->
-            <div class="profile-info"><b>Mail:</b> <%= maestro.correo %></div>
-            <!-- Materia que enseña el maestro -->
-            <div class="profile-info"><b>Areas:</b> <%= maestro.materia || 'N/A' %></div>
-            <!-- Idiomas que habla el maestro, separados por comas -->
-            <div class="profile-info"><b>Languages:</b> <%= maestro.idiomas.join(', ') %></div>
+    <%- include("partials/navbar"); -%>
+
+
+      <div class="gen">
+        <% maestros.forEach(maestro=> { %>
+          <div class="profile-card">
+            <div class="profile-icon">
+              <img src="/images/perf.png" height="100px">
+            </div>
+            <div class="info">
+              <div class="profile-name">
+                <%= maestro.nombre %>
+                  <%= maestro.apellidos %>
+              </div>
+              <div class="profile-info"><b>Mail:</b>
+                <%= maestro.correo %>
+              </div>
+              <div class="profile-info"><b>Areas:</b>
+                <%= maestro.materia || 'N/A' %>
+              </div>
+              <div class="profile-info"><b>Languages:</b>
+                <%= maestro.idiomas.join(', ') %></div>
           </div>
         </div>
       <% }); %>

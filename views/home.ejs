@@ -3,68 +3,69 @@
 
   <link rel="stylesheet" href="/stilos/registerstyle.css">
   <title>Session</title>
-</head>
-<body>
+  </head>
+
+  <body>
     <div class="container">
-        <!-- Formulario de Inicio de Sesión -->
-        <div class="login-container">
-          <h2>Log in</h2>
-          <form action="/login" method="POST">
-            <label for="correo">Mail</label>
-            <input type="email" id="correo" name="correo" required>
-            
-            <label for="contraseña">Password</label>
-            <input type="password" id="contraseña" name="contraseña" required>
-            
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-    
-        <!-- Formulario de Registro -->
-        <div class="register-container">
-          <h2>Register</h2>
-          <form action="/register" method="POST">
-            <label for="nombre">Name</label>
-            <input type="text" id="nombre" name="nombre" required>
-            
-            <label for="apellidos">Last name</label>
-            <input type="text" id="apellidos" name="apellidos" required>
-    
-            <label for="correo">Mail</label>
-            <input type="email" id="correo" name="correo" required>
-            
-            <label for="contraseña">Password</label>
-            <input type="password" id="contraseña" name="contraseña" required>
-    
-            <label for="tipo">Kind</label>
-            <select id="tipo" name="tipo" required onchange="toggleFields()">
-              <option value="estudiante">Estudent</option>
-              <option value="maestro">Teacher</option>
-            </select>
-    
-            <!-- Campos adicionales para maestros -->
-            <div id="maestro-fields" style="display: none;">
-              <label for="materia">Class</label>
-              <input type="text" id="materia" name="materia">
-    
-              <label for="idiomas">Language (separated by commas)</label>
-              <input type="text" id="idiomas" name="idiomas">
-            </div>
-    
-            <button type="submit">Registrer</button>
-          </form>
-        </div>
+      <!-- Formulario de Inicio de Sesión -->
+      <div class="login-container">
+        <h2>Log in</h2>
+        <form action="/login" method="POST">
+          <label for="correo">Mail</label>
+          <input type="email" id="correo" name="correo" required>
+
+          <label for="contraseña">Password</label>
+          <input type="password" id="contraseña" name="contraseña" required>
+
+          <button type="submit">Submit</button>
+        </form>
       </div>
-    
-      <script>
-        // Mostrar u ocultar campos de maestro en función del tipo de usuario
-        function toggleFields() {
-          const tipo = document.getElementById('tipo').value;
-          const maestroFields = document.getElementById('maestro-fields');
-          maestroFields.style.display = (tipo === 'maestro') ? 'block' : 'none';
-        }
-      </script>
-    
-    
-  
+
+      <!-- Formulario de Registro -->
+      <div class="register-container">
+        <h2>Register</h2>
+        <form action="/register" method="POST">
+          <label for="nombre">Name</label>
+          <input type="text" id="nombre" name="nombre" required>
+
+          <label for="apellidos">Last name</label>
+          <input type="text" id="apellidos" name="apellidos" required>
+
+          <label for="correo">Mail</label>
+          <input type="email" id="correo" name="correo" required>
+
+          <label for="contraseña">Password</label>
+          <input type="password" id="contraseña" name="contraseña" required>
+
+          <label for="tipo">Kind</label>
+          <select id="tipo" name="tipo" required onchange="toggleFields()">
+            <option value="estudiante">Estudent</option>
+            <option value="maestro">Teacher</option>
+          </select>
+
+          <!-- Campos adicionales para maestros -->
+          <div id="maestro-fields" style="display: none;">
+            <label for="materia">Class</label>
+            <input type="text" id="materia" name="materia">
+
+            <label for="idiomas">Language (separated by commas)</label>
+            <input type="text" id="idiomas" name="idiomas">
+          </div>
+
+          <button type="submit">Registrer</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Mostrar u ocultar campos de maestro en función del tipo de usuario
+      function toggleFields() {
+        const tipo = document.getElementById('tipo').value;
+        const maestroFields = document.getElementById('maestro-fields');
+        maestroFields.style.display = (tipo === 'maestro') ? 'block' : 'none';
+      }
+    </script>
+
+
+
     <%- include("partials/footer"); -%>
