@@ -20,7 +20,7 @@
   
   /* Títulos */
   h2 {
-    color: #003366; /* Color oscuro que combina con el texto en tu página */
+    color: #0c0a1c; /* Color oscuro que combina con el texto en tu página */
     font-family: 'Arial', sans-serif;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -31,7 +31,7 @@
   label {
     display: block;
     font-weight: bold;
-    color: #003366;
+    color: #0c0a1c;
     margin: 0.5rem 0 0.2rem;
   }
   
@@ -46,7 +46,7 @@
   }
   
   input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus {
-    border-color: #003366;
+    border-color: #0c0a1c;
     box-shadow: 0 0 5px rgba(0, 51, 102, 0.5);
     outline: none;
   }
@@ -55,8 +55,8 @@
   button[type="submit"] {
     width: 100%;
     padding: 0.8rem;
-    background-color: #003366;
-    color: #ffffff;
+    background-color: #0c0a1c;
+    color: #e8ffce;
     font-weight: bold;
     border: none;
     border-radius: 4px;
@@ -66,7 +66,7 @@
   }
   
   button[type="submit"]:hover {
-    background-color: #00509e;
+    background-color: #171335;
   }
   
   /* Ocultar campos adicionales inicialmente */

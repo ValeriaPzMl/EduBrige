@@ -1,12 +1,18 @@
 body{
     margin-top:20px;
-    background-color: #171335;
+    
+        background: rgb(232,255,206);
+        background: linear-gradient(90deg, rgba(232,255,206,1) 0%, rgba(172,250,223,1) 50%, rgba(148,173,215,1) 100%);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 /* Estilo personalizado para el contenedor general */
 .container-90vh {
     height: 90vh; /* 90% de la altura de la ventana */
     display: flex;
     flex-direction: column;
+    margin-top: 5vh;
+    border-radius: 5px;
   }
   /* Opcional: ajusta la altura interna para una mejor distribución */
   .chat-app {
@@ -61,7 +67,7 @@ body{
     transition: .5s;
     border: 0;
     margin-bottom: 30px;
-    border-radius: .55rem;
+    border-radius: 5px;
     position: relative;
     width: 100%;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
@@ -72,12 +78,12 @@ body{
     left: 0;
     top: 0;
     padding: 20px;
-    z-index: 7
+    z-index: 7;
 }
 
 .chat-app .chat {
     margin-left: 280px;
-    border-left: 1px solid #171335
+    border-left: 1px solid #171335;
 }
 
 .people-list {
@@ -85,36 +91,44 @@ body{
     -moz-transition: .5s;
     -o-transition: .5s;
     -webkit-transition: .5s;
-    transition: .5s
+    transition: .5s;
 }
 
 .people-list .chat-list li {
     padding: 10px 15px;
     list-style: none;
-    border-radius: 3px
+    border-radius: 3px;
 }
 
 .people-list .chat-list li:hover {
     background: #554c9b;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .people-list .chat-list li.active {
-    background: #6ad382
+    background: #6ad382;
 }
 
 .people-list .chat-list li .name {
-    font-size: 15px
+    font-size: 15px;
+    text-decoration: none;
+    font-size: larger;
+    color: #1d1e50;
 }
-
+.clearfix{
+    border-radius: 6px;
+}
+.mas{
+    border-radius: 6px;
+}
 .people-list .chat-list img {
     width: 45px;
-    border-radius: 50%
+    border-radius: 50%;
 }
 
 .people-list img {
     float: left;
-    border-radius: 50%
+    border-radius: 50%;
 }
 
 .people-list .about {
@@ -125,55 +139,55 @@ body{
 
 .people-list .status {
     color: #554c9b;
-    font-size: 13px
+    font-size: 13px;
 }
 
 .chat .chat-header {
     padding: 15px 20px;
-    border-bottom: 2px solid #125740
+    border-bottom: 2px solid #125740;
 }
 
 .chat .chat-header img {
     float: left;
     border-radius: 40px;
-    width: 40px
+    width: 40px;
 }
 
 .chat .chat-header .chat-about {
     float: left;
-    padding-left: 10px
+    padding-left: 10px;
 }
 
 .chat .chat-history {
     padding: 20px;
-    border-bottom: 2px solid #1d1e50
+    border-bottom: 2px solid #1d1e50;
 }
 
 .chat .chat-history ul {
-    padding: 0
+    padding: 3px;
 }
 
 .chat .chat-history ul li {
     list-style: none;
-    margin-bottom: 30px
+    margin-bottom: 30px;
 }
 
 .chat .chat-history ul li:last-child {
-    margin-bottom: 0px
+    margin-bottom: 0px;
 }
 
 .chat .chat-history .message-data {
-    margin-bottom: 15px
+    margin-bottom: 15px;
 }
 
 .chat .chat-history .message-data img {
     border-radius: 40px;
-    width: 40px
+    width: 40px;
 }
 
 .chat .chat-history .message-data-time {
     color: #554c9b;
-    padding-left: 6px
+    padding-left: 6px;
 }
 
 .chat .chat-history .message {
@@ -183,7 +197,7 @@ body{
     font-size: 16px;
     border-radius: 7px;
     display: inline-block;
-    position: relative
+    position: relative;
 }
 
 .chat .chat-history .message:after {
@@ -197,7 +211,7 @@ body{
     pointer-events: none;
     border-bottom-color: #e8ffce;
     border-width: 10px;
-    margin-left: -10px
+    margin-left: -10px;
 }
 
 .chat .chat-history .my-message {
@@ -215,21 +229,21 @@ body{
     pointer-events: none;
     border-bottom-color: #171335;
     border-width: 10px;
-    margin-left: -10px
+    margin-left: -10px;
 }
 
 .chat .chat-history .other-message {
     background: #554c9b;
-    text-align: right
+    text-align: right;
 }
 
 .chat .chat-history .other-message:after {
     border-bottom-color: #e8ffce;
-    left: 93%
+    left: 93%;
 }
 
 .chat .chat-message {
-    padding: 20px
+    padding: 20px;
 }
 
 .online,
@@ -237,23 +251,23 @@ body{
 .me {
     margin-right: 2px;
     font-size: 8px;
-    vertical-align: middle
+    vertical-align: middle;
 }
 
 .online {
-    color: #a2d36a
+    color: #a2d36a;
 }
 
 .offline {
-    color: #776ad4
+    color: #776ad4;
 }
 
 .me {
-    color: #554c9b
+    color: #554c9b;
 }
 
 .float-right {
-    float: right
+    float: right;
 }
 
 .clearfix:after {
@@ -262,7 +276,7 @@ body{
     font-size: 0;
     content: " ";
     clear: both;
-    height: 0
+    height: 0;
 }
 @media only screen and (max-width: 767px) {
     .chat-app .people-list {
@@ -271,42 +285,42 @@ body{
         overflow-x: auto;
         background: #e8ffce;
         left: -400px;
-        display: none
+        display: none;
     }
     .chat-app .people-list.open {
-        left: 0
+        left: 0;
     }
     .chat-app .chat {
-        margin: 0
+        margin: 0;
     }
     .chat-app .chat .chat-header {
-        border-radius: 0.55rem 0.55rem 0 0
+        border-radius: 0.55rem 0.55rem 0 0;
     }
     .chat-app .chat-history {
         height: 300px;
-        overflow-x: auto
+        overflow-x: auto;
     }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
     .chat-app .chat-list {
         height: 650px;
-        overflow-x: auto
+        overflow-x: auto;
     }
     .chat-app .chat-history {
         height: 600px;
-        overflow-x: auto
+        overflow-x: auto;
     }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
     .chat-app .chat-list {
         height: 480px;
-        overflow-x: auto
+        overflow-x: auto;
     }
     .chat-app .chat-history {
         height: calc(100vh - 350px);
-        overflow-x: auto
+        overflow-x: auto;
     }
 }
 
@@ -367,3 +381,8 @@ body{
   .file a:hover {
     background-color: #125740;
   }
+h6{
+    font-size: x-large;
+    font-weight: bolder;
+    color: #171335;
+}
