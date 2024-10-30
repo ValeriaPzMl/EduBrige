@@ -8,7 +8,12 @@
     margin: auto;
     margin-top: 3vh;
   }
-  
+  body{
+        background: rgb(232,255,206);
+        background: linear-gradient(90deg, rgba(232,255,206,1) 0%, rgba(172,250,223,1) 50%, rgba(148,173,215,1) 100%);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
   /* Contenedores de formulario */
   .login-container, .register-container {
     background: rgba(255, 255, 255, 0.3);

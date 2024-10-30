@@ -13,7 +13,7 @@
   <div class="container container-90vh">
     <div class="row clearfix">
       <div class="col-lg-12 mas">
-        <button class="btn d-block d-md-none mb-3" id="toggleChatList">Mostrar Categorías</button>
+        <button class="btn" id="toggleChatList">Show</button>
 
         <div class="card chat-app">
           <div id="plist" class="people-list chatn">
@@ -79,7 +79,7 @@
     document.getElementById('toggleChatList').addEventListener('click', function() {
       var chatList = document.getElementById('plist');
       chatList.classList.toggle('open');
-      this.textContent = chatList.classList.contains('open') ? 'Ocultar Categorías' : 'Mostrar Categorías';
+      this.textContent = chatList.classList.contains('open') ? 'Hide' : 'Show';
     });
   </script>
   
