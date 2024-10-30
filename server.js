@@ -10,7 +10,7 @@ import Message from './models/Message.js';
 import fs from 'fs';
 
 dotenv.config();
-const materias=["Math","Idioms","Science","Grammar","Social sciences","Coding","Geometry"];
+const materias=["Math","Idioms","Science","Grammar","Social_sciences","Coding","Geometry"];
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
@@ -141,7 +141,7 @@ const materiaSeleccionada = req.params.materia;
 try {
     const mensajes = await Message.find({ materia: materiaSeleccionada }).sort({ fecha: 1 });
     const usuario = await User.findById(req.session.userId); // Usuario autenticado
-    var pageName="Forums";
+    var pageName="Foros";
     res.render('foros', { materias, mensajes, usuario, materiaSeleccionada,pageName });
 } catch (err) {
     console.error("Error al cargar mensajes por materia:", err);

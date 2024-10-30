@@ -11,6 +11,9 @@ body{
 h1{
     color: #0c0a1c !important;
 }
+.active{
+    font-weight: 700!important;
+}
 .menu{
     background-color: #171335 !important;
     color: #e8ffce !important	;
