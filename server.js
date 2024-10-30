@@ -141,7 +141,7 @@ const materiaSeleccionada = req.params.materia;
 try {
     const mensajes = await Message.find({ materia: materiaSeleccionada }).sort({ fecha: 1 });
     const usuario = await User.findById(req.session.userId); // Usuario autenticado
-    var pageName="Foros";
+    var pageName="Forums";
     res.render('foros', { materias, mensajes, usuario, materiaSeleccionada,pageName });
 } catch (err) {
     console.error("Error al cargar mensajes por materia:", err);
@@ -160,7 +160,7 @@ app.get('/perfil', verificarAutenticacion, async (req, res) => {
     if (!usuario) {
       return res.status(404).send("Usuario no encontrado.");
     }
-    var pageName="My profile";
+    var pageName="Profile";
     // Renderiza la vista de perfil con la información del usuario
     res.render('perfil', { usuario,pageName });
   } catch (err) {
@@ -260,8 +260,8 @@ app.get('/', (req, res) => {
   });
 
 app.get('/index', verificarAutenticacion, (req, res) => {
-    var namePage="Home";
-  res.render('index',{namePage}); // Renderiza la vista `index.ejs`
+    var pageName="EduBridge";
+  res.render('index',{pageName}); // Renderiza la vista `index.ejs`
 });
 
 // COSAS DEL SERVIDOR ---------------------------------------------------------------------
