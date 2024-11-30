@@ -46,24 +46,24 @@ body{
   /* Ajusta el ancho de la lista de personas */
   .people-list {
     width: 25%; /* Puedes ajustar este valor si prefieres otro ancho */
-    background-color: #b7e2c6;
+    /*background-color: #b7e2c6;*/
   }
 
   /* El área de chat ocupa el espacio restante */
   .chat {
     flex: 1;
-    background-color: #daf2c7;
+    background-color: #e2e2e2;
     padding: 10px;
   }
 .chatsss{
-    background-color: #e8ffce;
+    background-color: #e2e2e2;
 }
 .chatn{
-    background-color: #8de6a3;
+    background-color: #ffefff;
 }
 
 .card {
-    background: #554c9b;
+    background: #c1cdff;
     transition: .5s;
     border: 0;
     margin-bottom: 30px;
@@ -83,7 +83,7 @@ body{
 
 .chat-app .chat {
     margin-left: 280px;
-    border-left: 1px solid #171335;
+    border-left: 1px solid #171934;
 }
 
 .people-list {
@@ -101,12 +101,12 @@ body{
 }
 
 .people-list .chat-list li:hover {
-    background: #554c9b;
+    background: #5e78e1;
     cursor: pointer;
 }
 
 .people-list .chat-list li.active {
-    background: #6ad382;
+    background: #385be8;
 }
 
 .people-list .chat-list li .name {
@@ -134,17 +134,17 @@ body{
 .people-list .about {
     float: left;
     padding-left: 8px;
-    border-color: #171335;
+    border-color: #171934;
 }
 
 .people-list .status {
-    color: #554c9b;
+    color: #c1cdff;
     font-size: 13px;
 }
 
 .chat .chat-header {
     padding: 15px 20px;
-    border-bottom: 2px solid #125740;
+    border-bottom: 2px solid #77767c;
 }
 
 .chat .chat-header img {
@@ -186,12 +186,12 @@ body{
 }
 
 .chat .chat-history .message-data-time {
-    color: #554c9b;
+    color: #c1cdff;
     padding-left: 6px;
 }
 
 .chat .chat-history .message {
-    color: #e8ffce;
+    color: #4b4d4f;
     padding: 18px 20px;
     line-height: 26px;
     font-size: 16px;
@@ -209,13 +209,13 @@ body{
     width: 0;
     position: absolute;
     pointer-events: none;
-    border-bottom-color: #e8ffce;
+    border-bottom-color: #c1cdff;
     border-width: 10px;
     margin-left: -10px;
 }
 
 .chat .chat-history .my-message {
-    background: #171335
+    background: #171934
 }
 
 .chat .chat-history .my-message:after {
@@ -227,18 +227,18 @@ body{
     width: 0;
     position: absolute;
     pointer-events: none;
-    border-bottom-color: #171335;
+    border-bottom-color: #171934;
     border-width: 10px;
     margin-left: -10px;
 }
 
 .chat .chat-history .other-message {
-    background: #554c9b;
+    background: #c1cdff;
     text-align: right;
 }
 
 .chat .chat-history .other-message:after {
-    border-bottom-color: #e8ffce;
+    border-bottom-color: #c1cdff;
     left: 93%;
 }
 
@@ -255,7 +255,7 @@ body{
 }
 
 .online {
-    color: #a2d36a;
+    color: #6a82d3;
 }
 
 .offline {
@@ -263,7 +263,7 @@ body{
 }
 
 .me {
-    color: #554c9b;
+    color: #c1cdff;
 }
 
 .float-right {
@@ -358,7 +358,7 @@ body{
 
   /* Estilo para los elementos de la lista */
   .pdf-list li {
-    background-color: #a2d36a;
+    background-color: #6a6dd3;
     text-align: center;
     padding: 10px;
     border-radius: 5px;
@@ -366,7 +366,7 @@ body{
     align-items: center;
   }
   .pdf-list li a{
-    color: #171335;
+    color: #171934;
     font-size: 30px;
     font-weight: bolder;
     text-decoration: none;
@@ -379,13 +379,17 @@ body{
   }
 
   .file a:hover {
-    background-color: #125740;
+    background-color: #77767c;
   }
 h6{
     font-size: x-large;
     font-weight: bolder;
-    color: #171335;
+    color: #171934;
 }
 .btn{
-    color: #171335;
+    color: #171934;
+}
+button{
+    background-color: #ffffff00;
+    border: 0px;
 }

@@ -1,77 +1,78 @@
-.container {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem;
-    background: linear-gradient(to right, #d4fc79, #96e6a1);
-    border-radius: 8px;
-    max-width: 800px;
-    margin: auto;
-    margin-top: 3vh;
-  }
-  body{
-        background: rgb(232,255,206);
-        background: linear-gradient(90deg, rgba(232,255,206,1) 0%, rgba(172,250,223,1) 50%, rgba(148,173,215,1) 100%);
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
+.container { 
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  /*background: linear-gradient(to right, #c1cdff, #ffefff);*/
+  border-radius: 8px;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 3vh;
 }
-  /* Contenedores de formulario */
-  .login-container, .register-container {
-    background: rgba(255, 255, 255, 0.3);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 1;
-  }
-  
-  /* Títulos */
-  h2 {
-    color: #0c0a1c; /* Color oscuro que combina con el texto en tu página */
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  
-  /* Etiquetas y campos de entrada */
-  label {
-    display: block;
-    font-weight: bold;
-    color: #0c0a1c;
-    margin: 0.5rem 0 0.2rem;
-  }
-  
-  input[type="text"], input[type="email"], input[type="password"], select {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus {
-    border-color: #0c0a1c;
-    box-shadow: 0 0 5px rgba(0, 51, 102, 0.5);
-    outline: none;
-  }
-  
-  /* Botones */
-  button[type="submit"] {
-    width: 100%;
-    padding: 0.8rem;
-    background-color: #0c0a1c;
-    color: #e8ffce;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 2vh;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #171335;
-  }
-  
-  /* Ocultar campos adicionales inicialmente */
+
+body {
+  background: rgb(193,205,255); /* Base color1 */
+  background: linear-gradient(90deg, #c1cdff 0%, #ffefff 50%, #e2e2e2 100%); /* Combination of color1, color2, color5 */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* Contenedores de formulario */
+.login-container, .register-container {
+  background: rgba(193, 205, 255, 0.3); /* color1 with transparency */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+/* Títulos */
+h2 {
+  color: #171934; /* color3 */
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Etiquetas y campos de entrada */
+label {
+  display: block;
+  font-weight: bold;
+  color: #171934; /* color3 */
+  margin: 0.5rem 0 0.2rem;
+}
+
+input[type="text"], input[type="email"], input[type="password"], select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #77767c; /* color4 */
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus {
+  border-color: #171934; /* color3 */
+  box-shadow: 0 0 5px rgba(23, 25, 52, 0.5); /* color3 with transparency */
+  outline: none;
+}
+
+/* Botones */
+button[type="submit"] {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #171934; /* color3 */
+  color: #ffefff; /* color2 */
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 2vh;
+}
+
+button[type="submit"]:hover {
+  background-color: #77767c; /* color4 */
+}
+
+/* Ocultar campos adicionales inicialmente */

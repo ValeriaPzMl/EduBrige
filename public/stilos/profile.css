@@ -1,27 +1,80 @@
-#ProfilePicture{
+#ProfilePicture {
     width: 75%;
     margin-top: 2.5vh;
-    margin-left: 5vw;
-    margin-bottom: 1vh;
     margin-left: 2vw;
+    margin-bottom: 1vh;
 }
-#card{
+
+#card {
     width: 55vw;
     margin-top: 150px;
     padding: 10px;
     text-align: left;
     margin: auto;
+   /* background-color: #c1cdff; /* color1 */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(23, 25, 52, 0.1); /* sombra color3 */
 }
-.gen{
-    text-align: center  ;
+
+.gen {
+    text-align: center;
     padding-top: 10vh;
+    /*background-color: #ffefff; /* color2 */
+    border-radius: 10px;
+    padding: 2rem;
+    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+
 }
-.card-body{
+
+.card-body {
     margin-left: 10px;
-    color: #0c0a1c;
+    color: #171934; /* color3 */
     font-size: larger;
+    font-weight: 500;
 }
-.btn{
-    background-color: #0c0a1c;
-    color: #e8ffce ;	;
+
+.btn {
+    background-color: #171934; /* color3 */
+    color: #ffefff; /* color2 */
+    border: 1px solid #77767c; /* color4 */
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #ffefff; /* color2 */
+    color: #171934; /* color3 */
+    border: 1px solid #c1cdff; /* color1 */
+}
+
+.card {
+    border: 1px solid #77767c; /* color4 */
+    background-color: #c1cdff; /* color1 */
+    color: #171934; /* color3 */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(23, 25, 52, 0.2); /* sombra color3 */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(23, 25, 52, 0.3); /* sombra más intensa color3 */
+}
+
+#card h5, #card p {
+    color: #171934; /* color3 */
+    font-weight: bold;
+}
+
+#card a {
+    text-decoration: none;
+    color: #c1cdff; /* color1 */
+    font-weight: bold;
+}
+
+#card a:hover {
+    text-decoration: underline;
+    color: #77767c; /* color4 */
 }
